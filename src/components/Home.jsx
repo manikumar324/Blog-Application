@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from './banner';
+import Banner from './Banner';
 import Categories from './Categories';
 import { Grid } from '@mui/material';
 import Posts from './Posts';
