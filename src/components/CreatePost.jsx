@@ -37,7 +37,7 @@ const CreatePost = () => {
         data.append('name', file.name);
         data.append('file', file);
         try {
-          const response = await axios.post('http://localhost:5000/upload', data);
+          const response = await axios.post('https://blog-server-fucr.onrender.com/upload', data);
           console.log(response.data)
           // Update the post with the uploaded image URL
         //   const imageUrl = `http://localhost:5000/uploads/${response.data.filename}`;
@@ -65,7 +65,7 @@ const CreatePost = () => {
 
   const handlePublish = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/create', post);
+      const response = await axios.post('https://blog-server-fucr.onrender.com/create', post);
       if (response.status === 201) {
         console.log('Post created successfully:', response.data);
         navigate('/home'); // Redirect to the home page after successful creation

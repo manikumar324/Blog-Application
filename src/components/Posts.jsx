@@ -17,7 +17,7 @@ const Posts = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/posts", {
+        const response = await axios.get("https://blog-server-fucr.onrender.com/posts", {
           params: { category },
         });
         setPosts(response.data || []);

@@ -35,7 +35,7 @@ const DetailView = () => {
     useEffect(()=>{
         const getData = async () =>{
            try{
-            const response = await axios.get(`http://localhost:5000/post/${id}`)
+            const response = await axios.get(`https://blog-server-fucr.onrender.com/post/${id}`)
             if(response){
                 setPost(response.data);
                 console.log("Post data fetched Successfully",response.data)
@@ -50,7 +50,7 @@ const DetailView = () => {
 
     const handleDelete = async ()=>{
         try{
-            const response = await axios.delete(`http://localhost:5000/delete/${id}`)
+            const response = await axios.delete(`https://blog-server-fucr.onrender.com/delete/${id}`)
             if(response.status === 200){
                 console.log("Post Deleted Successfully")
                 navigate("/home")

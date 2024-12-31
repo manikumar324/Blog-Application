@@ -59,7 +59,7 @@ const Login = ( ) => {
     }
     setLoading(true); // Show loader
     try {
-      const response = await axios.post("http://localhost:5000/signup", {
+      const response = await axios.post("https://blog-server-fucr.onrender.com/signup", {
         name: signupValues.name,
         email: signupValues.email,
         password: signupValues.password,
@@ -101,7 +101,7 @@ const Login = ( ) => {
     }
     setLoading(true); // Show loader
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("https://blog-server-fucr.onrender.com/login", {
         email: loginValues.email,
         password: loginValues.password,
       });

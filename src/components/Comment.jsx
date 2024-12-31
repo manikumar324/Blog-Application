@@ -53,7 +53,7 @@ const Comment = ({ comment, setToggle }) => {
   const updateComment = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/comment/update/${comment._id}`,
+        `https://blog-server-fucr.onrender.com/comment/update/${comment._id}`,
         { comments: updatedComment }
       );
       if (response.status === 200) {
@@ -70,7 +70,7 @@ const Comment = ({ comment, setToggle }) => {
   const removeComment = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/comment/delete/${comment._id}`
+        `https://blog-server-fucr.onrender.com/comment/delete/${comment._id}`
       );
       if (response.status === 200) {
         setToggle((prev) => !prev);

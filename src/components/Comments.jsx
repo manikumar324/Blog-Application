@@ -21,7 +21,7 @@ const Comments = ({ post }) => {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/comments/${post._id}`
+          `https://blog-server-fucr.onrender.com/comments/${post._id}`
         );
         if (response.status === 200) {
           // Sort comments to display the latest one on top
@@ -51,7 +51,7 @@ const Comments = ({ post }) => {
     if (!comment.comments.trim()) return; // Prevent empty comments
     try {
       const response = await axios.post(
-        "http://localhost:5000/comment/new",
+        "https://blog-server-fucr.onrender.com/comment/new",
         comment
       );
       if (response.status === 200) {

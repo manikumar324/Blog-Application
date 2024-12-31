@@ -40,7 +40,7 @@ const UpdatePost = () => {
   useEffect(() => {
     const getUpdatedPostData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/post/${id}`);
+        const response = await axios.get(`https://blog-server-fucr.onrender.com/post/${id}`);
         if (response) {
           setPost(response.data);
           console.log("Post data fetched Successfully", response.data);
@@ -60,7 +60,7 @@ const UpdatePost = () => {
         data.append("file", file);
         try {
           const response = await axios.post(
-            "http://localhost:5000/upload",
+            "https://blog-server-fucr.onrender.com/upload",
             data
           );
           console.log(response.data);
@@ -91,7 +91,7 @@ const UpdatePost = () => {
   const handleUpdate = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/update/${id}`,
+        `https://blog-server-fucr.onrender.com/update/${id}`,
         post
       );
       if (response.status === 200) {
