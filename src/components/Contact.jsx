@@ -5,7 +5,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import contact from "../assets/contact.jpeg"; // Local contact image
+import con from "../assets/contact.jpeg"; // Local contact image
 import { Link } from "react-router-dom";
 
 const Contact = () => {
@@ -17,7 +17,7 @@ const Contact = () => {
       {/* For small devices (xs and sm): Show contact image */}
       <Box
         className="bg-cover bg-center !h-[50vh] md:!hidden flex items-center justify-start text-white text-center mx-2 mt-10 md:mt-16 md:mx-20"
-        style={{ backgroundImage: `url(${contact})` }} // Use the local contact image
+        style={{ backgroundImage: `url(${con})` }} // Use the local contact image
       ></Box>
       <Box className=" space-y-5 md:hidden bg-gray-700 mx-2 w-auto flex flex-col justify-center items-center py-8">
         <Typography className="!text-[20px] text-white md:!text-[35px]">

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Box, Button, TextareaAutosize } from "@mui/material";
 import { UserContext } from "./context/UserContext";
 import axios from "axios";
-import Comment from "./comment";
+import Comment from './Comment';
 
 const initialValues = {
   name: "",
