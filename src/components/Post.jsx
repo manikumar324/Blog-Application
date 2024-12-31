@@ -1,8 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
 import { Typography } from "@mui/material";
 import { UserContext } from "./context/UserContext";
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Post = ({ post }) => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (in ms)
+      easing: 'ease-in-out', // Easing function
+      once: true, // Whether animation should happen only once
+      mirror: false, // Whether elements should animate out while scrolling past them
+    });
+  }, []);
+
   const { title, description, picture, category, name } = post;
   const { user } = useContext(UserContext);
 
@@ -15,7 +29,8 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start h-[300px] space-y-1 w-full border border-gray-300 rounded-lg shadow-md">
+    <div className="flex flex-col items-center justify-start h-[300px] space-y-1 w-full border border-gray-300 rounded-lg shadow-md"
+    data-aos="fade-down" data-aos-delay="500">
       {/* Image Section */}
       <div className="flex-shrink-0">
         <img

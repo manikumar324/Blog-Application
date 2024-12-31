@@ -13,6 +13,10 @@ import axios from "axios";
 import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const initialPost = {
   title: "",
   description: "",
@@ -24,6 +28,16 @@ const initialPost = {
 };
 
 const UpdatePost = () => {
+
+   useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration (in ms)
+          easing: 'ease-in-out', // Easing function
+          once: true, // Whether animation should happen only once
+          mirror: false, // Whether elements should animate out while scrolling past them
+        });
+      }, []);
+
   const [post, setPost] = useState(initialPost);
   const [file, setFile] = useState(null);
   const location = useLocation();
@@ -124,6 +138,7 @@ const UpdatePost = () => {
         src={post.picture || defaultImage} // Dynamically display uploaded image
         alt="Post"
         className="w-[100%] h-[250px] md:h-[400px] object-cover"
+        data-aos="zoom-out" data-aos-delay="500"
       />
 
       <FormControl className="!mt-2 !flex !flex-row !items-center">
@@ -147,9 +162,9 @@ const UpdatePost = () => {
         />
       </FormControl>
       <TextareaAutosize
-        minRows={3}
+        minRows={5}
         placeholder="Tell About Your Story...."
-        className="w-[100%] mt-3 !h-[100px] outline-none bg-[#EEF0F3] p-2 rounded-lg"
+        className="w-[100%] mt-3 !h-[150px] outline-none bg-[#EEF0F3] p-2 rounded-lg"
         onChange={(e) => handleChange(e)}
         name="description"
         value={post.description}

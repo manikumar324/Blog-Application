@@ -12,7 +12,20 @@ import { UserContext } from './context/UserContext';
 //components
 import Comments from './Comments';
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const DetailView = () => {
+
+  useEffect(() => {
+      AOS.init({
+        duration: 500, // Animation duration (in ms)
+        easing: 'ease-in-out', // Easing function
+        once: true, // Whether animation should happen only once
+        mirror: false, // Whether elements should animate out while scrolling past them
+      });
+    }, []);
 
     const { id } = useParams();
 
@@ -68,7 +81,8 @@ const DetailView = () => {
 
 return (
   <Box className="md:my-[60px] md:mx-[100px] my-10 mx-2">
-    <img src={url} alt="blog-post" className="w-full mt-[60px] !h-[280px] md:!h-[400px] object-cover" />
+    <img src={url} alt="blog-post" className="w-full mt-[60px] !h-[280px] md:!h-[400px] object-cover" 
+    data-aos="slide-right" data-aos-delay="100"/>
     {user.name === name && (
       <Box className="float-right">
         <Tooltip title="Edit" arrow>

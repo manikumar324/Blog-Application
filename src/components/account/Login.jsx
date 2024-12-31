@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 // import { useUser } from "../context/UserContext"; // Import the UserContext
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const signupInitialValues = {
   name: "",
   email: "",
@@ -20,6 +24,16 @@ const loginInitialValues = {
 };
 
 const Login = ( ) => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (in ms)
+      easing: 'ease-in-out', // Easing function
+      once: true, // Whether animation should happen only once
+      mirror: false, // Whether elements should animate out while scrolling past them
+    });
+  }, []);
+
   // const { updateUser } = useUser(); // Access the updateUser function
   const { setUser } = useContext(UserContext)
   const [account, setAccount] = useState("login");
@@ -135,7 +149,8 @@ const Login = ( ) => {
   };
 
   return (
-    <Box className="w-[320px] mt-24 md:w-[400px] m-auto shadow-xl md:mt-20">
+    <Box className="w-[320px] mt-24 md:w-[400px] m-auto shadow-xl md:mt-20"
+    data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
       <Toaster />
       <img src={blog} alt="login" className="w-[100px] m-auto pt-[50px]" />
       {account === "login" ? (

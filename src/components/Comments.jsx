@@ -74,6 +74,7 @@ const Comments = ({ post }) => {
           src={url}
           alt="person"
           className="w-[30px] h-[30px] md:!h-[50px] md:!w-[50px]"
+          data-aos="flip-left" data-aos-delay="500"
         />
         <TextareaAutosize
           minRows={3}

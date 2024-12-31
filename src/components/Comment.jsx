@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect} from "react";
 import {
   Box,
   IconButton,
@@ -15,6 +15,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { UserContext } from "./context/UserContext";
 import axios from "axios";
+
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Utility function to generate colors based on a string
 const generateColor = (input) => {
@@ -43,6 +47,16 @@ const generateColor = (input) => {
 };
 
 const Comment = ({ comment, setToggle }) => {
+
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // Animation duration (in ms)
+        easing: 'ease-in-out', // Easing function
+        once: true, // Whether animation should happen only once
+        mirror: false, // Whether elements should animate out while scrolling past them
+      });
+    }, []);
+    
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false); // State to control the modal
   const [updatedComment, setUpdatedComment] = useState(comment?.comments || ""); // Safeguard for comments
@@ -87,6 +101,7 @@ const Comment = ({ comment, setToggle }) => {
     <Box
       className="mt-[30px] p-[10px] rounded-lg"
       style={{ backgroundColor: bg }}
+      data-aos="flip-up" data-aos-delay="100"
     >
     <Box className="flex justify-between">
     <Typography
@@ -148,6 +163,7 @@ const Comment = ({ comment, setToggle }) => {
             <Tooltip title="Edit">
               <EditIcon
                 onClick={handleOpen}
+                data-aos="flip-right" data-aos-delay="1000"
                 className="!text-[25px] md:!text-[30px] m-[5px] p-[4px] bg-white !shadow-xl rounded-full text-gray-600 cursor-pointer"
               />
             </Tooltip>
@@ -161,7 +177,8 @@ const Comment = ({ comment, setToggle }) => {
         {comment?.name === user?.name && (
           <div className="ml-auto">
             <Tooltip title="Delete" onClick={removeComment}>
-              <DeleteIcon className="!text-[25px] md:!text-[30px] m-[5px] p-[4px]  rounded-full shadow-lg bg-white text-red-600 cursor-pointer" />
+              <DeleteIcon className="!text-[25px] md:!text-[30px] m-[5px] p-[4px]  rounded-full shadow-lg bg-white text-red-600 cursor-pointer" 
+              data-aos="flip-left" data-aos-delay="1000"/>
             </Tooltip>
           </div>
         )}

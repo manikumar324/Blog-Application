@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -8,18 +9,32 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import con from "../assets/contact.jpeg"; // Local contact image
 import { Link } from "react-router-dom";
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Contact = () => {
+
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // Animation duration (in ms)
+        easing: 'ease-in-out', // Easing function
+        once: true, // Whether animation should happen only once
+        mirror: false, // Whether elements should animate out while scrolling past them
+      });
+    }, []);
+    
   const url =
     "https://img.freepik.com/premium-photo/contact-us-hand-man-holding-mobile-smartphone-with-mail-phone-email-chat-icon-cutomer-support-concept-blue-wide-banner_256259-3866.jpg";
 
   return (
-    <Box>
+    <Box data-aos="zoom-in-left" data-aos-delay="500">
       {/* For small devices (xs and sm): Show contact image */}
       <Box
         className="bg-cover bg-center !h-[50vh] md:!hidden flex items-center justify-start text-white text-center mx-2 mt-10 md:mt-16 md:mx-20"
         style={{ backgroundImage: `url(${con})` }} // Use the local contact image
       ></Box>
-      <Box className=" space-y-5 md:hidden bg-gray-700 mx-2 w-auto flex flex-col justify-center items-center py-8">
+      <Box className=" space-y-5 md:hidden bg-gray-700 mx-2 w-auto flex flex-col justify-center items-center py-12">
         <Typography className="!text-[25px] text-white md:!text-[35px]">
           You can reach out to us :-)
         </Typography>
