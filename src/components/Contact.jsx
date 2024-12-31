@@ -20,7 +20,7 @@ const Contact = () => {
         style={{ backgroundImage: `url(${con})` }} // Use the local contact image
       ></Box>
       <Box className=" space-y-5 md:hidden bg-gray-700 mx-2 w-auto flex flex-col justify-center items-center py-8">
-        <Typography className="!text-[20px] text-white md:!text-[35px]">
+        <Typography className="!text-[25px] text-white md:!text-[35px]">
           You can reach out to us :-)
         </Typography>
         <Box className="flex justify-evenly !text-[#878787] space-x-3">
@@ -41,7 +41,7 @@ const Contact = () => {
             <FacebookIcon className="hover:animate-spin !text-[25px] md:!text-[32px]" />
           </Link>
         </Box>
-        <Box className="flex flex-col items-center md:hidden w-full pt-5 space-y-1">
+        <Box className="flex flex-col items-center md:hidden w-full pt-10 space-y-1">
           <hr className="w-full border-gray-300" />
           <p className="text-white text-sm">
             &copy; BlogSite @2025.All Rights Reserved.

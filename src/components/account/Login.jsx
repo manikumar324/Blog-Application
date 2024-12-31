@@ -135,7 +135,7 @@ const Login = ( ) => {
   };
 
   return (
-    <Box className="w-[300px] mt-10 md:w-[400px] m-auto shadow-xl md:mt-20">
+    <Box className="w-[320px] mt-24 md:w-[400px] m-auto shadow-xl md:mt-20">
       <Toaster />
       <img src={blog} alt="login" className="w-[100px] m-auto pt-[50px]" />
       {account === "login" ? (
