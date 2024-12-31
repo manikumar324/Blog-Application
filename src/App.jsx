@@ -7,7 +7,7 @@ import { ThreeDots } from "react-loader-spinner";
 // Lazy-loaded components for initial routes
 const Login = lazy(() => import("./components/account/Login"));
 const Home = lazy(() => import("./components/Home"));
-const Contact = lazy(() => import("./components/contact"));
+const Contact = lazy(() => import("./components/Contact"));
 const About = lazy(() => import("./components/About"));
 
 // Eagerly-loaded components for faster navigation
